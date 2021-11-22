@@ -1,0 +1,14 @@
+{
+  "name": "everscale-lab",
+  "version": "1.0.0-beta.0",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "tondev": "^0.10.5"
+  },
+  "scripts": {
+    "lab01": "cd lab01 && bash run.sh",
+    "setup-se": "bash util/setup-se.sh",
+    "setup-tondev": "tondev tonos-cli update && tondev ts4 update && tondev sol update",
+    "postinstall": "yarn setup-tondev"
+  }
+}
