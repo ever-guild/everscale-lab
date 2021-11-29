@@ -7,7 +7,8 @@
   },
   "scripts": {
     "lab01": "cd lab01 && bash run.sh",
-    "test": "yarn lab01",
+    "lab02": "cd lab02 && bash run.sh",
+    "test": "yarn lab01 && yarn lab02",
     "setup-se": "bash util/setup-se.sh",
     "setup-tondev": "tondev se update && tondev tonos-cli update && tondev ts4 update && tondev sol update",
     "postinstall": "yarn setup-tondev && yarn setup-se"
