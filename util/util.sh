@@ -2,13 +2,13 @@
 
 addressWallet() {
     name="${1:-alice}"
-    address=$(npx tondev contract info --signer "${name}" SafeMultisigWallet | grep Address | cut -d':' -f3 | cut -d' ' -f1)
+    address=$(npx everdev contract info --signer "${name}" SafeMultisigWallet | grep Address | cut -d':' -f3 | cut -d' ' -f1)
     printf "%s" "${address}"
 }
 
 addressContract() {
     contract="${1}"
-    address=$(npx tondev contract info "${contract}" | grep Address | cut -d':' -f3 | cut -d' ' -f1)
+    address=$(npx everdev contract info "${contract}" | grep Address | cut -d':' -f3 | cut -d' ' -f1)
     printf "%s" "${address}"
 }
 
@@ -46,11 +46,11 @@ createWallet() {
       wget --quiet https://raw.githubusercontent.com/tonlabs/ton-labs-contracts/5ee039e4d093b91b6fdf7d77b9627e2e7d37f000/solidity/safemultisig/SafeMultisigWallet.tvc
       wget --quiet https://raw.githubusercontent.com/tonlabs/ton-labs-contracts/5ee039e4d093b91b6fdf7d77b9627e2e7d37f000/solidity/safemultisig/SafeMultisigWallet.abi.json
   fi
-  npx tondev signer generate "${name}" >> tondev.log 2>&1
-  keyPublic="0x$(npx tondev signer info "${name}" | jq -r .keys.public)"
+  npx everdev signer generate "${name}" >> everdev.log 2>&1
+  keyPublic="0x$(npx everdev signer info "${name}" | jq -r .keys.public)"
   input="owners:[$keyPublic],reqConfirms:1"
-  echo "$(TZ=EET date) createWallet" >> tondev.log 2>&1
-  npx tondev contract deploy --signer "${name}" SafeMultisigWallet --value "${value}" --input "${input}" >> tondev.log 2>&1
+  echo "$(TZ=EET date) createWallet" >> everdev.log 2>&1
+  npx everdev contract deploy --signer "${name}" SafeMultisigWallet --value "${value}" --input "${input}" >> everdev.log 2>&1
   echo "Created wallet 0:$(addressWallet "${name}") with $(balanceWallet "${name}") for ${name}"
 }
 
@@ -59,7 +59,7 @@ call() {
   method=${2}
   input=${3}
   signer=${4:-se}
-  npx tondev contract run --signer "${signer}" "${contractName}" "${method}" --input "$input" >> tondev.log 2>&1
+  npx everdev contract run --signer "${signer}" "${contractName}" "${method}" --input "$input" >> everdev.log 2>&1
 }
 
 submitTransaction() {
@@ -71,7 +71,7 @@ submitTransaction() {
   address="0:$(addressContract "${contractName}")"
   body=$(npx tonos-cli body --abi "${contractName}.abi.json" "${method}" "${param}" | grep body | cut -d' ' -f3)
   input="dest:'${address}',value:${value},allBalance:false,bounce:true,payload:'$body'"
-  echo "$(TZ=EET date) submitTransaction" >> tondev.log 2>&1
+  echo "$(TZ=EET date) submitTransaction" >> everdev.log 2>&1
   echo "submitTransaction ${method} ${param} to ${contractName}"
   call SafeMultisigWallet submitTransaction "$input" "${signer}"
 }

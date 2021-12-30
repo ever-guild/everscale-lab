@@ -3,14 +3,12 @@
   "version": "1.0.0-beta.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "tondev": "^0.10.5"
+    "everdev": "^1.0.0"
   },
   "scripts": {
-    "lab01": "cd lab01 && bash run.sh",
-    "lab02": "cd lab02 && bash run.sh",
-    "test": "yarn lab01 && yarn lab02",
+    "test": "bash util/run.sh",
     "setup-se": "bash util/setup-se.sh",
-    "setup-tondev": "tondev se update && tondev tonos-cli update && tondev ts4 update && tondev sol update",
-    "postinstall": "yarn setup-tondev && yarn setup-se"
+    "setup-everdev": "everdev se update && everdev tonos-cli update && everdev ts4 update && everdev sol update",
+    "postinstall": "yarn setup-everdev && yarn setup-se"
   }
 }
