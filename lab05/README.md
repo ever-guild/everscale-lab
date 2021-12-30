@@ -1,0 +1,1 @@
+Two ways to destruct contract
