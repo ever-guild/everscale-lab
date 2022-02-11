@@ -1,0 +1,20 @@
+{
+  "name": "lab06",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tonclient/appkit": "^0.3.0",
+    "@tonclient/core": "^1.28.0",
+    "@tonclient/lib-node": "^1.28.0",
+    "image-to-base64": "^2.2.0",
+    "path": "^0.12.7",
+    "zx": "^4.2.0"
+  }
+}
