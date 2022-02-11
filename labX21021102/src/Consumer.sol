@@ -6,37 +6,38 @@ import "IStore.sol";
 
 contract Consumer is Acceptable {
     IStore store;
-
-    function setup(address config) public accept {
-        store = IStore(config);
-    }
-
-    function decode(TvmCell data) public pure returns(string out)
-    {
-        (out) = abi.decode(data, (string));
-    }
-
-    function encode(string content) public pure returns(TvmCell out)
-    {
-        out = abi.encode(content);
-    }
-
-    function write(uint key, string content) public accept returns(bool out)
-    {
-        out = store.set(key, encode(content)).await;
-    }
-
-    function read(uint key) public accept returns(string out)
-    {
-        optional(TvmCell) data = store.get(key).await;
-        if (data.hasValue()) out = decode(data.get());
-    }
-
     string public stash;
 
-    function put(uint key) public accept returns(string out)
+    function setup(address config)
+    external accept
     {
-        stash = read(key);
-        out = stash;
+        store = IStore(config);
+        tvm.log(format("setup config:{}", config));
+    }
+
+    function write(string key, string content)
+    external accept
+    returns(bool out)
+    {
+        tvm.log(format("write start key:{} content:{}", key, content));
+        out = store.set(key, content).await;
+        tvm.log("write end");
+    }
+
+    function read(string key)
+    external accept
+    returns(string out)
+    {
+        tvm.log(format("read start key:{}", key));
+        out = store.get(key).await;
+        tvm.log(format("read end out:{}", out));
+    }
+
+    function put(string key)
+    external accept
+    {
+        tvm.log(format("put start key:{}", key));
+        stash = store.get(key).await;
+        tvm.log(format("put end key:{}", stash));
     }
 }

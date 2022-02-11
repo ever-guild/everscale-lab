@@ -5,15 +5,18 @@ import "Acceptable.sol";
 import "IStore.sol";
 
 contract Store is Acceptable, IStore {
-    mapping (uint => TvmCell) data;
+    mapping(string => string) data;
 
-    function get(uint key)
-    external view responsible override accept returns (optional(TvmCell) value) {
-        value = data.fetch(key);
+    function get(string key)
+    external view responsible override
+    returns (string value) {
+        if (data.exists(key)) value = data.at(key);
     }
 
-    function set(uint key, TvmCell value)
-    external responsible override accept returns (bool status) {
-        status = data.add(key, value);
+    function set(string key, string value)
+    external responsible override accept
+    returns (bool status) {
+        if (data.exists(key)) status = data.replace(key, value);
+        else status = data.add(key, value);
     }
 }

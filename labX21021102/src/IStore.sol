@@ -2,6 +2,6 @@
 pragma ton-solidity >= 0.57.3;
 
 interface IStore {
-    function get(uint key) external view responsible returns (optional(TvmCell) value);
-    function set(uint key, TvmCell value) external responsible returns (bool status);
+    function get(string key) external view responsible returns (string value);
+    function set(string key, string value) external responsible returns (bool status);
 }
