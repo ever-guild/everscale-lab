@@ -18,5 +18,5 @@ addressB=$(addressContract B)
 echo "addressB ${addressB}"
 
 npx everdev contract run-local B doc
-npx everdev contract run A addToB --input "addr:${addressB},content:foo"
+npx everdev contract run A addToB --input "addr:'${addressB}',content:foo"
 npx everdev contract run-local B doc

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+EVER_NETWORK=$(npx everdev network list | grep Default | cut -d' ' -f1)
+export EVER_NETWORK
+
 addressWallet() {
     name="${1:-alice}"
     address=$(npx everdev contract info --signer "${name}" SafeMultisigWallet | grep Address | cut -d':' -f3 | cut -d' ' -f1)
@@ -7,9 +10,7 @@ addressWallet() {
 }
 
 addressContract() {
-    contract="${1}"
-    address=$(npx everdev contract info "${contract}" | grep Address | cut -d':' -f3 | cut -d' ' -f1)
-    printf "%s" "${address}"
+    npx everdev contract info "${1}" | grep Address | cut -d' ' -f4
 }
 
 balanceAccount() {

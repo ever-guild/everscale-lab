@@ -10,7 +10,7 @@ rm -fr *.abi.json *.tvc
 # Deploy A - v1
 npx everdev sol compile A.sol
 npx everdev contract deploy A --value 1000000000
-appAddress="0:$(addressContract A)"
+appAddress="$(addressContract A)"
 cp A.abi.json app.abi.json
 
 # Check version
