@@ -9,6 +9,13 @@
   dependencies:
     "@tonclient/core" "^1"
 
+"@tonclient/appkit@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@tonclient/appkit/-/appkit-0.3.0.tgz#bf5f975c5753ea426c9ef9f5dc0e849f6aad816d"
+  integrity sha512-ZIl3od8kQL/8zvhn+dnZpnaWxuBWrE2YaxIf+McURHLUG1l5aL/yzrIzUq5kgz/HokJnLaEMcCAhmO09FeofNw==
+  dependencies:
+    "@tonclient/core" "^1"
+
 "@tonclient/core@^1":
   version "1.25.0"
   resolved "https://registry.yarnpkg.com/@tonclient/core/-/core-1.25.0.tgz#6b896840f5d71ede872b5a91de2f946216605c59"
@@ -28,6 +35,13 @@ ajv@^6.12.3:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+ansi-styles@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
+  integrity sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==
+  dependencies:
+    color-convert "^1.9.0"
 
 asn1@^0.2.4, asn1@~0.2.3:
   version "0.2.6"
@@ -77,6 +91,11 @@ bcrypt-pbkdf@^1.0.0, bcrypt-pbkdf@^1.0.2:
   integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
+
+bignumber.js@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-9.0.2.tgz#71c6c6bed38de64e24a65ebe16cfcf23ae693673"
+  integrity sha512-GAcQvbpsM0pUb0zw1EI0KhQEZ+lRwR5fYaAp3vPOYuP7aDvGy6cVN6XHLauvF8SOga2y0dcLcjt3iQDTSEliyw==
 
 binary@^0.3.0:
   version "0.3.0"
@@ -128,10 +147,31 @@ chainsaw@~0.1.0:
   dependencies:
     traverse ">=0.3.0 <0.4"
 
+chalk@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
+  integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
+  dependencies:
+    ansi-styles "^3.2.1"
+    escape-string-regexp "^1.0.5"
+    supports-color "^5.3.0"
+
 chownr@^1.1.1:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
   integrity sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
+
+color-convert@^1.9.0:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
+  integrity sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
+  dependencies:
+    color-name "1.1.3"
+
+color-name@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
+  integrity sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=
 
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.8"
@@ -209,14 +249,20 @@ end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   dependencies:
     once "^1.4.0"
 
-everdev@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/everdev/-/everdev-1.0.0.tgz#daa3da3230439ee9409caf788d2a8426ebf3fe66"
-  integrity sha512-BdCe5Vp1Pi7SPixriNYSmR+PSjn+mv5zEbx9cjcF0kYENML4BChaqSWHsCWXohF+liJDFk/FncUdlPAvs5stNA==
+escape-string-regexp@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
+  integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
+
+everdev@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/everdev/-/everdev-1.1.1.tgz#ace5e8650aa196dd82bb78997547a72a2f3514fa"
+  integrity sha512-LXGXNY2slxfEY4r/AwjI27lpmShozNRicBS8cc6re2Q/p1iToN7VqWXwBkXYkidv8jmpbSXS2nXpSolNcf3xLw==
   dependencies:
     "@tonclient/appkit" "^0"
     "@tonclient/core" "^1"
     "@tonclient/lib-node" "^1"
+    chalk "^2.4.2"
     dockerode "^3.3.1"
     fs-extra "^9.1.0"
     mv "^2.1.1"
@@ -312,6 +358,11 @@ har-validator@~5.1.3:
   dependencies:
     ajv "^6.12.3"
     har-schema "^2.0.0"
+
+has-flag@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
+  integrity sha1-tdRU3CGZriJWmfNGfloH87lVuv0=
 
 http-signature@~1.2.0:
   version "1.2.0"
@@ -583,6 +634,13 @@ string_decoder@^1.1.1:
   integrity sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==
   dependencies:
     safe-buffer "~5.2.0"
+
+supports-color@^5.3.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
+  integrity sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
+  dependencies:
+    has-flag "^3.0.0"
 
 tar-fs@~2.0.1:
   version "2.0.1"

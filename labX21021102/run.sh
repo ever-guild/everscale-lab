@@ -24,3 +24,10 @@ npx everdev contract run-local build/Store get --input "key:foo,answerId:0"
 npx everdev contract run build/Consumer read --input "key:foo"
 npx everdev contract run build/Consumer put --input "key:foo"
 npx everdev contract run-local build/Consumer stash
+
+# Query events
+addressContract build/Store
+query=$(printf )
+activeAddr=$(curl --silent http://localhost/graphql \
+-H 'content-type: application/json' \
+-d '{"operationName":null,"variables":{},"query": "subscription { messages( filter: { src: { eq: \"'$(addressContract build/Consumer)'\" } msg_type: { eq: 2 } } ) { id boc } }"}' | jq )
